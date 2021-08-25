@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Tellar_en_clase
+{
+    class AlDadito
+    {
+
+        //Atributos
+        int valor;
+
+        public int Valor { get => valor; set => valor = value; }
+
+        public int tirar()
+        {
+            Random random = new Random();
+            valor = random.Next(1, 7);
+            return valor;
+        }
+
+    }
+    }
+
+
+
+//Clase principal o clase main
+
+using System;
+
+namespace Tellar_en_clase
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Instanciamos los tres dados
+            AlDadito dado1 = new AlDadito();
+            AlDadito dado2 = new AlDadito();
+            AlDadito dado3 = new AlDadito();
+
+            //Condicion para el juego
+            int opt = 1;
+            while (opt != 0)
+            {
+                dado1.tirar();
+                dado2.tirar();
+                dado3.tirar();
+                Console.WriteLine("Dado 1: {0} Dado 2: {1} Dado 3: {2}", dado1.Valor, dado2.Valor, dado3.Valor);
+                if (dado1.Valor == dado2.Valor && dado2.Valor == dado3.Valor)
+                {
+                    Console.WriteLine("Mijo se gano el premio, que de bnas");
+                }
+                else
+                {
+                    Console.WriteLine("Perdio mijo, si va a llorar no derrame muchas lagrimas");
+                    Console.WriteLine("Quiere seguir jugando precione 1 sino precione 0");
+                    opt = int.Parse(Console.ReadLine());
+                }
+
+
+
+            }
+
+
+        }
+    }
+}
